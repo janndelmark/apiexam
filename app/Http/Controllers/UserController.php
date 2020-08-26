@@ -15,9 +15,6 @@ use Carbon\Carbon;
 class UserController extends Controller
 {
 	use ThrottlesLogins;
-    //public function __construct(){
-	//	$this->middleware('auth:api', ['except' => ['login', 'register']]);
-	//}
 	
 	 /**
      * Get a JWT via given credentials.
@@ -25,7 +22,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
 	 protected $maxAttempts = 5;
-		protected $decayMinutes = 1;
+		protected $decayMinutes = 5;
     public function login(Request $request){
 		
     	$validator = Validator::make($request->all(), [
